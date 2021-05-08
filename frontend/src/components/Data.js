@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+const lang = document.documentElement.lang;
+const optionsForDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
+
 export default function Data() {
   const [workouts, setWorkouts] = useState([]);
 
@@ -24,10 +27,10 @@ export default function Data() {
       {workouts.map(function(workout, i) {
         return (
           <div key={workout.index}>
-            <h1>{workout.name}</h1>
-            <p>{workout.description}</p>
-            <p>{workout.startDate}</p>
-            <p>{workout.category}</p>
+            <h1>Name: {workout.name}</h1>
+            <p>Description: {workout.description}</p>
+            <p>Start date: {new Date(workout.startDate).toLocaleDateString(lang, optionsForDate)}</p>
+            <p>Category: {workout.category}</p>
 
           </div>
         );

@@ -4,7 +4,7 @@ import FilterCategory from "./FilterCategory";
 
 export default function TopBar() {
 
-  const [selectedFilter, setSelectedFilter] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState();
 
   const callback = useCallback((filter) => {
     setSelectedFilter(filter);
@@ -16,9 +16,9 @@ export default function TopBar() {
       
         <p>Filter entries:</p> 
         <FilterDate callback={callback}/>
-        <FilterCategory />
+        <FilterCategory callback={callback}/>
       
-      <p>{selectedFilter? 'True' : 'False'}</p>
+      <p>{selectedFilter}</p>
     </div>
   );
 }

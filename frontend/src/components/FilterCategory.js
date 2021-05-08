@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
-export default function FilterCategory() {
+export default function FilterCategory({callback}) {
+
   const categories = ["c1", "c2", "c3", "c5", "c6", "c7"];
 
   const [value, setValue] = useState('');
 
   const handleChange = (event) => {
-    console.log(event.target.value);
-    // setValue(event.target.value);
+    console.log(event.target.name + ' was selected');
+    setValue(event.target.value)
+    callback(event.target.value);
   }
 
   return (
@@ -22,6 +24,7 @@ export default function FilterCategory() {
           </select>
         </label>
       </form>
+      <p>{value}</p>
     </div>
   );
 }

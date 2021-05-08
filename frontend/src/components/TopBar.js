@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import FilterCategory from "./FilterCategory";
+import Filter from "./Filter";
 
 export default function TopBar() {
   const [selectedDateOrder, setSelectedDateOrder] = useState();
@@ -18,11 +18,11 @@ export default function TopBar() {
   return (
     <div>
       <p>Filter entries:</p>
-      <FilterCategory 
+      <Filter
       options={['ascending', 'descending']}
       callback={callbackDate} 
       />
-      <FilterCategory
+      <Filter
         options={["c1", "c2", "c3", "c5", "c6", "c7"]}
         callback={callbackCategories}
       />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function FilterCategory(props) {
+export default function Filter(props) {
 
   console.log(props);
   const [value, setValue] = useState('');

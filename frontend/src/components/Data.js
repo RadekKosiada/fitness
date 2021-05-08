@@ -30,9 +30,10 @@ export default function Data() {
   return (
     <div>
       {workouts
-        .filter((workout) => {
-          return workout.category === "c2";
-        })
+        .sort(function(a, b) {
+          console.log(a, b)
+          return new Date(b.startDate) - new Date(a.startDate);
+      })
         .map(function(workout, i) {
           return (
             <div key={workout.index}>

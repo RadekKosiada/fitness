@@ -8,8 +8,10 @@ const optionsForDate = {
   day: "numeric"
 };
 
-export default function Data() {
+export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
+
+  console.log('Data props: ', props);
 
   useEffect(() => {
     fetch("/data")
@@ -31,7 +33,7 @@ export default function Data() {
     <div>
       {workouts
         .sort(function(a, b) {
-          console.log(a, b)
+          // console.log(a, b)
           return new Date(b.startDate) - new Date(a.startDate);
       })
         .map(function(workout, i) {

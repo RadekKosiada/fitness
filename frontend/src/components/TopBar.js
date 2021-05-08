@@ -13,11 +13,11 @@ export default function TopBar() {
 
   return (
     <div>
-      <p>
-        Filter entries: 
+      
+        <p>Filter entries:</p> 
         <FilterDate callback={callback}/>
-        {/* <FilterCategory onFilterUpdate={updateFilter}/> */}
-      </p>
+        <FilterCategory />
+      
       <p>{selectedFilter? 'True' : 'False'}</p>
     </div>
   );

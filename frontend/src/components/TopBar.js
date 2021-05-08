@@ -1,24 +1,33 @@
 import React, { useState, useCallback } from "react";
-import FilterDate from "./FilterDate";
 import FilterCategory from "./FilterCategory";
 
 export default function TopBar() {
+  const [selectedDateOrder, setSelectedDateOrder] = useState();
+  const [selectedCategory, setselectedCategory] = useState();
 
-  const [selectedFilter, setSelectedFilter] = useState();
+  const callbackDate = useCallback(filter => {
+    setSelectedDateOrder(filter);
+    console.log("triggered", selectedDateOrder);
+  }, []);
 
-  const callback = useCallback((filter) => {
-    setSelectedFilter(filter);
-    console.log('triggered', selectedFilter);
+  const callbackCategories = useCallback(filter => {
+    setselectedCategory(filter);
+    console.log("triggered", selectedCategory);
   }, []);
 
   return (
     <div>
-      
-        <p>Filter entries:</p> 
-        <FilterDate callback={callback}/>
-        <FilterCategory callback={callback}/>
-      
-      <p>{selectedFilter}</p>
+      <p>Filter entries:</p>
+      <FilterCategory 
+      options={['ascending', 'descending']}
+      callback={callbackDate} 
+      />
+      <FilterCategory
+        options={["c1", "c2", "c3", "c5", "c6", "c7"]}
+        callback={callbackCategories}
+      />
+      <p>{selectedCategory}</p>
+      <p>{selectedDateOrder}</p>
     </div>
   );
 }

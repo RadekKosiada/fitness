@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 const lang = document.documentElement.lang;
-const optionsForDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
+const optionsForDate = {
+  weekday: "short",
+  year: "numeric",
+  month: "short",
+  day: "numeric"
+};
 
 export default function Data() {
   const [workouts, setWorkouts] = useState([]);
-
 
   useEffect(() => {
     fetch("/data")
@@ -25,17 +29,28 @@ export default function Data() {
 
   return (
     <div>
-      {workouts.map(function(workout, i) {
-        return (
-          <div key={workout.index}>
-            <h1>Name: {workout.name}, Index: {workout.index}</h1>
-            <p>Description: {workout.description}</p>
-            <p>Start date: {new Date(workout.startDate).toLocaleDateString(lang, optionsForDate)}</p>
-            <p>Category: {workout.category}</p>
-
-          </div>
-        );
-      })}
+      {workouts
+        .filter((workout) => {
+          return workout.category === "c2";
+        })
+        .map(function(workout, i) {
+          return (
+            <div key={workout.index}>
+              <h1>
+                Name: {workout.name}, Index: {workout.index}
+              </h1>
+              <p>Description: {workout.description}</p>
+              <p>
+                Start date:{" "}
+                {new Date(workout.startDate).toLocaleDateString(
+                  lang,
+                  optionsForDate
+                )}
+              </p>
+              <p>Category: {workout.category}</p>
+            </div>
+          );
+        })}
     </div>
   );
 }

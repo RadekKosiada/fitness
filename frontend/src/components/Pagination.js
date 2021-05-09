@@ -7,7 +7,6 @@ export default function Pagination(props) {
 
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
-    counter++;
   }
 
   const handleClick = event => {

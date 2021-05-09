@@ -33,16 +33,13 @@ function App() {
 
   const callbackDate = useCallback(filter => {
     setSelectedDateOrder(filter);
-    console.log("triggered", selectedDateOrder);
   }, []);
 
   const callbackCategories = useCallback(filter => {
     setselectedCategory(filter);
-    console.log("triggered", selectedCategory);
   }, []);
 
   const getWorkspaceId = useCallback(object => {
-    console.log("clicked Id");
     setSelectedWorkoutObject(object);
   }, []);
 

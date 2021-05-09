@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 export default function Workout(props) {
 
   const history = useHistory();
-  console.log(props.data);
   const lang = document.documentElement.lang;
   const optionsForDate = {
     weekday: "short",

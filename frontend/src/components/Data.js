@@ -16,13 +16,10 @@ export default function Data(props) {
   const history = useHistory();
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
-  console.log("Data props: ", props);
-
   useEffect(() => {
     fetch("/data/" + props.selectedPage)
       .then(response => {
         if (response.ok) {
-          console.log(response);
           return response.json();
         }
       })
@@ -71,19 +68,19 @@ export default function Data(props) {
   //   console.log('nW: ', workouts);
   // }
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     let index = Number(event.target.id);
- 
+
     let workoutObject = {};
     workouts.forEach(workout => {
-        if(index === workout.index) {
-          workoutObject = workout;
-        }
-      })
+      if (index === workout.index) {
+        workoutObject = workout;
+      }
+    });
 
     props.getWorkspaceId(workoutObject);
     history.push("/" + index);
-  }
+  };
 
   let newWorkouts = [];
   const dateOptions = props.dateOptions;
@@ -91,13 +88,11 @@ export default function Data(props) {
 
   for (let i = 1; i <= dateOptions.length; i++) {
     if (props.selectedDateOrder === dateOptions[i]) {
-      console.log(dateOptions[i]);
       newWorkouts = workouts.filter(workout => {
         return (
           Number(workout.startDate.split("-")[1]) === i + currentMonthNumber
         );
       });
-      console.log(newWorkouts);
     } else if (props.selectedDateOrder === dateOptions[0]) {
       newWorkouts = workouts;
     }
@@ -109,7 +104,7 @@ export default function Data(props) {
         return (
           <div className="workout-container" key={workout.index}>
             <h1 onClick={handleClick} id={workout.index}>
-              Name: {workout.name}, Index: {workout.index} 
+              Name: {workout.name}, Index: {workout.index}
             </h1>
             <p>Description: {workout.description}</p>
             <p>
@@ -123,10 +118,11 @@ export default function Data(props) {
           </div>
         );
       })}
-      <Pagination 
-        sumOfPages={pagination} 
+      <Pagination
+        sumOfPages={pagination}
         currentPage={props.selectedPage}
-        getSelectedPage={props.getSelectedPage} />
+        getSelectedPage={props.getSelectedPage}
+      />
     </div>
   );
 }

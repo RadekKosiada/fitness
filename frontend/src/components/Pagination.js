@@ -10,14 +10,13 @@ export default function Pagination(props) {
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
     counter++;
-    if (counter >= 10) {
-      hideRestOfPages = true;
-      break;
-    }
+    // if (counter >= 10) {
+    //   hideRestOfPages = true;
+    //   break;
+    // }
   }
 
   const handleClick = event => {
-    console.log(event.target.id);
     props.getSelectedPage(event.target.id);
     history.push("/data/" + event.target.id);
   };
@@ -29,7 +28,7 @@ export default function Pagination(props) {
           {number}
         </span>
       ))}
-      <span>{hideRestOfPages ? "..." : null}</span>
+      {/* <span>{hideRestOfPages ? "..." : null}</span> */}
     </div>
   );
 }

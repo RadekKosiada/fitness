@@ -1,3 +1,23 @@
+.topbar-container {
+	background-color: #aaa;
+	color: #FFF;
+}
+
+.topbar-container>*,
+.filter-container>* {
+	display: inline-block;
+}
+
+.topbar-container>* {
+	margin: 10px;
+}
+
+.filter-output {
+	margin-left: 10px;
+	color: #FFF;
+}
+
+
 /**
 * Awesome website
 * @author YOUR_NAME_HERE

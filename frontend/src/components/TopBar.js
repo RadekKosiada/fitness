@@ -12,7 +12,7 @@ export default function TopBar(props) {
   // };
 
   return (
-    <div>
+    <div className="topbar-container">
       <p>Filter entries:</p>
       <Filter
         // selectedFilter={selectedDateOrder}

@@ -11,7 +11,7 @@ export default function Filter(props) {
   };
 
   return (
-    <div>
+    <div className="filter-container">
       <form className="filter-form">
         <label>
           <select value={value} onChange={handleChange}>

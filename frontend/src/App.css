@@ -56,6 +56,12 @@
 	padding-left: 10px;
 	max-width: 400px;
 }
+
+.workout-container .workout-index {
+	float: right;
+	margin-right: 15px;
+}
+
 .workout-container:hover {
 	box-shadow: 3px 3px #aaa;
 }

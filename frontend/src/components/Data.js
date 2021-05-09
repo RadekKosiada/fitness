@@ -66,8 +66,9 @@ export default function Data(props) {
       {newWorkouts.map(function(workout, i) {
         return (
           <div className="workout-container" key={workout.index}>
+            <p className="workout-index">{workout.index}</p>
             <h1 onClick={handleClick} id={workout.index}>
-              Name: {workout.name}, Index: {workout.index}
+              Name: {workout.name}
             </h1>
             <p>Description: {workout.description}</p>
             <p>

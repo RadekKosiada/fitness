@@ -9,7 +9,7 @@ export default function Pagination(props) {
   console.log(pagesArray);
   return (
     <div className="pagination-container">
-      {pagesArray.map(number => <span>{number}</span>)}
+      {pagesArray.map((number, i) => <span key={i}>{number}</span>)}
     </div>
   )
 }

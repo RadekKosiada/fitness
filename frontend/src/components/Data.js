@@ -66,7 +66,7 @@ export default function Data(props) {
   // }
 
   let newWorkouts = [];
-  const categoriesOptions = ["", "c1", "c2", "c3", "c5", "c6", "c7"];
+  const categoriesOptions = props.categoriesOptions;
   for(let i = 1; i <= categoriesOptions.length; i++) {
     if (props.selectedCategory === categoriesOptions[i]) {
       console.log(categoriesOptions[i]);

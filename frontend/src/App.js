@@ -7,6 +7,9 @@ function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
 
+  const dateOptions = ["", "ascending", "descending"];
+  const categoriesOptions = ["", "c1", "c2", "c3", "c5", "c6", "c7"];
+
   const callbackDate = useCallback(filter => {
     setSelectedDateOrder(filter);
     console.log("triggered", selectedDateOrder);
@@ -24,10 +27,14 @@ function App() {
         callbackCategories={callbackCategories}
         selectedDateOrder={selectedDateOrder}
         selectedCategory={selectedCategory}
+        dateOptions = {dateOptions}
+        categoriesOptions= {categoriesOptions}
       />
       <Data
         selectedDateOrder={selectedDateOrder}
         selectedCategory={selectedCategory}
+        dateOptions = {dateOptions}
+        categoriesOptions= {categoriesOptions}
       />
     </div>
   );

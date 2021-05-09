@@ -23,6 +23,7 @@ export default function Data(props) {
       })
       .then(jsonResponse => {
         setWorkouts(jsonResponse);
+        console.log(workouts);
       })
       .catch(error => {
         console.log(error.message);
@@ -66,15 +67,18 @@ export default function Data(props) {
   // }
 
   let newWorkouts = [];
-  const categoriesOptions = props.categoriesOptions;
-  for(let i = 1; i <= categoriesOptions.length; i++) {
-    if (props.selectedCategory === categoriesOptions[i]) {
-      console.log(categoriesOptions[i]);
+  console.log(props);
+  const dateOptions = props.dateOptions;
+ 
+  for(let i = 1; i <= dateOptions.length; i++) {
+    if (props.selectedDateOrder === dateOptions[i]) {
+      console.log(dateOptions[i]);
       newWorkouts = workouts.filter((workout) => {
-        return workout.category === categoriesOptions[i];
+        
+        return Number(workout.startDate.split('-')[1]) === i;
       })
       console.log(newWorkouts);
-    } else if (props.selectedCategory === categoriesOptions[0]) {
+    } else if (props.selectedDateOrder === dateOptions[0]) {
       newWorkouts = workouts;
     }
   }

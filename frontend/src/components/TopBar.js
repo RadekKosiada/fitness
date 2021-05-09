@@ -16,7 +16,6 @@ export default function TopBar(props) {
         options={props.dateOptions}
         callback={props.callbackDate}
         selectedOption={props.selectedDateOrder}
-        disabled={true}
         label={props.filterDateLabel}
       />
       <Filter
@@ -25,6 +24,7 @@ export default function TopBar(props) {
         callback={props.callbackCategories}
         selectedOption={props.selectedCategory}
         label={props.filterCategoriesLabel}
+        disabled={true}
       />
 
       {/* <button onClick={handleClick}>Reset all filter</button> */}

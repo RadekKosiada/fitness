@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Pagination from './Pagination';
 
 const lang = document.documentElement.lang;
 const optionsForDate = {
@@ -10,6 +11,7 @@ const optionsForDate = {
 
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
+  const [pagination, setPagination] = useState('');
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
   console.log("Data props: ", props);
@@ -25,6 +27,7 @@ export default function Data(props) {
       .then(jsonResponse => {
         console.log(jsonResponse.workouts)
         setWorkouts(jsonResponse.workouts);
+        setPagination(jsonResponse.sumOfPages);
         console.log(workouts);
       })
       .catch(error => {
@@ -106,6 +109,7 @@ export default function Data(props) {
           </div>
         );
       })}
+      <Pagination sumOfPages = {pagination}/>
     </div>
   );
 }

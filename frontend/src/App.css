@@ -32,6 +32,10 @@
 	width: 80px;
 }
 
+.pagination-container>* {
+	margin-right: 10px;
+}
+
 /**
 * Awesome website
 * @author YOUR_NAME_HERE

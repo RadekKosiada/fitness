@@ -1,8 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Workout(props) {
 
-  console.log(props.data)
+  const history = useHistory();
+  console.log(props.data);
   const lang = document.documentElement.lang;
   const optionsForDate = {
     weekday: "short",
@@ -11,17 +13,26 @@ export default function Workout(props) {
     day: "numeric"
   };
 
+  const handleClick = () => {
+    history.push("/data");
+  }
   return (
-    <div className="workout-container">
-      <h1>
-        Name: {props.data.name}, Index: {props.data.index}
-      </h1>
-      <p>Description: {props.data.description}</p>
-      <p>
-        Start date:{" "}
-        {new Date(props.data.startDate).toLocaleDateString(lang, optionsForDate)}
-      </p>
-      <p>Category: {props.data.category}</p>
+    <div>
+      <button onClick={handleClick}>Back to workouts</button>
+      <div className="workout-container">
+        <h1>
+          Name: {props.data.name}, Index: {props.data.index}
+        </h1>
+        <p>Description: {props.data.description}</p>
+        <p>
+          Start date:{" "}
+          {new Date(props.data.startDate).toLocaleDateString(
+            lang,
+            optionsForDate
+          )}
+        </p>
+        <p>Category: {props.data.category}</p>
+      </div>
     </div>
   );
 }

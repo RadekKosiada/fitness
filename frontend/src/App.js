@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import "./App.css";
 import Data from "./components/Data";
 import TopBar from "./components/TopBar";
+import Header from "./components/Header";
 
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <TopBar
         callbackDate={callbackDate}
         callbackCategories={callbackCategories}

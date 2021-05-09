@@ -17,6 +17,14 @@
 	color: #FFF;
 }
 
+.header-container>* {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header-container img {
+	width: 80px;
+}
 
 /**
 * Awesome website

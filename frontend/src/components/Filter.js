@@ -14,7 +14,12 @@ export default function Filter(props) {
     <div className="filter-container">
       <form className="filter-form">
         <label>
-          <select value={value} onChange={handleChange} disabled={props.disabled} >
+          <h3>{props.label}</h3>
+          <select
+            value={value}
+            onChange={handleChange}
+            disabled={props.disabled}
+          >
             {props.options.map((category, index) => {
               return (
                 <option key={index} value={category}>

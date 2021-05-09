@@ -10,6 +10,8 @@ function App() {
 
   const dateOptions = ["under construction", "ascending", "descending"];
   const categoriesOptions = ["", "c1", "c2", "c3", "c5", "c6", "c7"];
+  const filterDateLabel = "Start date";
+  const filterCategoriesLabel = "Category";
 
   const callbackDate = useCallback(filter => {
     setSelectedDateOrder(filter);
@@ -29,14 +31,16 @@ function App() {
         callbackCategories={callbackCategories}
         selectedDateOrder={selectedDateOrder}
         selectedCategory={selectedCategory}
-        dateOptions = {dateOptions}
-        categoriesOptions= {categoriesOptions}
+        dateOptions={dateOptions}
+        categoriesOptions={categoriesOptions}
+        filterDateLabel={filterDateLabel}
+        filterCategoriesLabel={filterCategoriesLabel}
       />
       <Data
         selectedDateOrder={selectedDateOrder}
         selectedCategory={selectedCategory}
-        dateOptions = {dateOptions}
-        categoriesOptions= {categoriesOptions}
+        dateOptions={dateOptions}
+        categoriesOptions={categoriesOptions}
       />
     </div>
   );

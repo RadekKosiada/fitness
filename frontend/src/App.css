@@ -4,7 +4,8 @@
 }
 
 .topbar-container>*,
-.filter-container>* {
+.filter-container>*, 
+.filter-container h3 {
 	display: inline-block;
 }
 
@@ -15,6 +16,11 @@
 .filter-output {
 	margin-left: 10px;
 	color: #FFF;
+}
+
+.filter-container h3 {
+
+	margin-right: 5px;
 }
 
 .header-container>* {

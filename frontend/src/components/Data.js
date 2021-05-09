@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Pagination from './Pagination';
+import Pagination from "./Pagination";
 
 const lang = document.documentElement.lang;
 const optionsForDate = {
@@ -11,9 +11,10 @@ const optionsForDate = {
 
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
-  const [pagination, setPagination] = useState('');
+  const [pagination, setPagination] = useState("");
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
+  const currentPage = 1;
   console.log("Data props: ", props);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Data(props) {
         }
       })
       .then(jsonResponse => {
-        console.log(jsonResponse.workouts)
+        console.log(jsonResponse.workouts);
         setWorkouts(jsonResponse.workouts);
         setPagination(jsonResponse.sumOfPages);
         console.log(workouts);
@@ -75,25 +76,26 @@ export default function Data(props) {
   console.log(props);
   const dateOptions = props.dateOptions;
   const currentMonthNumber = new Date().getMonth();
- 
-  for(let i = 1; i <= dateOptions.length; i++) {
+
+  for (let i = 1; i <= dateOptions.length; i++) {
     if (props.selectedDateOrder === dateOptions[i]) {
       console.log(dateOptions[i]);
-      newWorkouts = workouts.filter((workout) => {
-        
-        return Number(workout.startDate.split('-')[1]) === i + currentMonthNumber;
-      })
+      newWorkouts = workouts.filter(workout => {
+        return (
+          Number(workout.startDate.split("-")[1]) === i + currentMonthNumber
+        );
+      });
       console.log(newWorkouts);
     } else if (props.selectedDateOrder === dateOptions[0]) {
       newWorkouts = workouts;
     }
   }
-  
+
   return (
     <div>
       {newWorkouts.map(function(workout, i) {
         return (
-          <div key={workout.index}>
+          <div className="workout-container" key={workout.index}>
             <h1>
               Name: {workout.name}, Index: {workout.index}
             </h1>
@@ -109,7 +111,7 @@ export default function Data(props) {
           </div>
         );
       })}
-      <Pagination sumOfPages = {pagination}/>
+      <Pagination sumOfPages={pagination} currentPage={currentPage} />
     </div>
   );
 }

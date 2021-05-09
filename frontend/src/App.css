@@ -36,6 +36,13 @@
 	margin-right: 10px;
 }
 
+.workout-container {
+	border: 1px solid gray;
+	margin: 5px;
+	padding-left: 10px;
+	max-width: 400px;
+}
+
 /**
 * Awesome website
 * @author YOUR_NAME_HERE

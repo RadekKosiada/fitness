@@ -14,7 +14,7 @@ export default function Workout(props) {
   };
 
   const handleClick = () => {
-    history.push("/data");
+    history.push("/data/" + props.selectedPage);
   }
   return (
     <div>

@@ -4,11 +4,12 @@ import Data from "./components/Data";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Workout from "./components/Workout";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import {BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
+  const [selectedWorkout, setSelectedWorkout] = useState();
 
   const dateOptions = [
     "",
@@ -41,13 +42,14 @@ function App() {
 
   const getWorkspaceId = useCallback(id => {
     console.log("clicked Id", id);
+    setSelectedWorkout(id);
   }, []);
 
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Switch> */}
-          <Header />
+        <Header />
+        <Route path = "/data">
           <TopBar
             callbackDate={callbackDate}
             callbackCategories={callbackCategories}
@@ -65,8 +67,8 @@ function App() {
             categoriesOptions={categoriesOptions}
             getWorkspaceId={getWorkspaceId}
           />
-          <Route exact path="/" component={Workout} />
-        {/* </Switch> */}
+        </Route>
+        <Route exact path={"/" + selectedWorkout} component={Workout} />
       </BrowserRouter>
     </div>
   );

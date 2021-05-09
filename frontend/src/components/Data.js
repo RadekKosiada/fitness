@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import { useHistory } from "react-router-dom";
 
 const lang = document.documentElement.lang;
 const optionsForDate = {
@@ -12,6 +13,7 @@ const optionsForDate = {
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
   const [pagination, setPagination] = useState("");
+  const history = useHistory();
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
   const currentPage = 1;
@@ -75,6 +77,7 @@ export default function Data(props) {
   const handleClick = (event) => {
     console.log(event.target.id);
     props.getWorkspaceId(event.target.id);
+    history.push("/" + event.target.id);
   }
 
   let newWorkouts = [];

@@ -1,15 +1,25 @@
-import React from 'react'
+import React from "react";
 
 export default function Pagination(props) {
-
   const pagesArray = [];
-  for(let i = 1; i <= props.sumOfPages; i++) {
+  var counter = 0;
+  var hideRestOfPages = false;
+
+  for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
+    counter++;
+    if (counter >= 10) {
+      hideRestOfPages = true;
+      break;
+    }
   }
-  console.log(pagesArray);
+
   return (
     <div className="pagination-container">
-      {pagesArray.map((number, i) => <span key={i}>{number}</span>)}
+      {pagesArray.map((number, i) => (
+        <span key={i}>{number}</span>
+      ))}
+      <span>{hideRestOfPages ? "..." : null}</span>
     </div>
-  )
+  );
 }

@@ -22,9 +22,9 @@ function App() {
       <TopBar
         callbackDate={callbackDate}
         callbackCategories={callbackCategories}
+        selectedDateOrder={selectedDateOrder}
+        selectedCategory={selectedCategory}
       />
-      <p>{selectedCategory}</p>
-      <p>{selectedDateOrder}</p>
       <Data
         selectedDateOrder={selectedDateOrder}
         selectedCategory={selectedCategory}

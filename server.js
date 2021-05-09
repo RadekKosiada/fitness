@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 5000;
 
-const workouts = require("./workouts40.json");
+const workouts = require("./workouts.json");
 
 app.get("/data/:index", (request, response) => {
   console.log(request.params.index);
@@ -15,21 +15,21 @@ app.get("/data/:index", (request, response) => {
   if (index === 1) {
     indexOfFirstWorkoutToSend = 0;
   } else {
-    indexOfFirstWorkoutToSend = index - 1 + index * 20;
+    indexOfFirstWorkoutToSend = (index-1) * 20;
   }
 
   var indexOfLastWorkoutToSend;
   if (Number(index) === 1) {
     indexOfLastWorkoutToSend = 20;
   } else {
-    indexOfLastWorkoutToSend = index - 2 + index * 20;
+    indexOfLastWorkoutToSend = indexOfFirstWorkoutToSend + 20;
   }
 
   console.log("Index first", indexOfFirstWorkoutToSend);
   console.log("Index last", indexOfLastWorkoutToSend);
   
   const workoutsToSend = workouts.slice(indexOfFirstWorkoutToSend, indexOfLastWorkoutToSend);
-
+  console.log('WL: ', workoutsToSend.length)
   response.json({
     workouts: workoutsToSend,
     sumOfPages: sumOfAllFrontendPages

@@ -18,11 +18,13 @@ export default function Data(props) {
     fetch("/data/1")
       .then(response => {
         if (response.ok) {
+          console.log(response);
           return response.json();
         }
       })
       .then(jsonResponse => {
-        setWorkouts(jsonResponse);
+        console.log(jsonResponse.workouts)
+        setWorkouts(jsonResponse.workouts);
         console.log(workouts);
       })
       .catch(error => {

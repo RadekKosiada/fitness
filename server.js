@@ -25,11 +25,13 @@ app.get("/data/:index", (request, response) => {
     indexOfLastWorkoutToSend = index - 2 + index * 20;
   }
 
-  console.log("Index last", indexOfLastWorkoutToSend);
   console.log("Index first", indexOfFirstWorkoutToSend);
+  console.log("Index last", indexOfLastWorkoutToSend);
+  
+  const workoutsToSend = workouts.slice(indexOfFirstWorkoutToSend, indexOfLastWorkoutToSend);
 
   response.json({
-    workouts: workouts,
+    workouts: workoutsToSend,
     sumOfPages: sumOfAllFrontendPages
   });
 });

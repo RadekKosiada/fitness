@@ -8,7 +8,7 @@ function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
 
-  const dateOptions = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const dateOptions = ["", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"];
   const categoriesOptions = ["", "c1", "c2", "c3", "c5", "c6", "c7"];
   const filterDateLabel = "Start date";
   const filterCategoriesLabel = "Category";

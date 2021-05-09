@@ -69,13 +69,14 @@ export default function Data(props) {
   let newWorkouts = [];
   console.log(props);
   const dateOptions = props.dateOptions;
+  const currentMonthNumber = new Date().getMonth();
  
   for(let i = 1; i <= dateOptions.length; i++) {
     if (props.selectedDateOrder === dateOptions[i]) {
       console.log(dateOptions[i]);
       newWorkouts = workouts.filter((workout) => {
         
-        return Number(workout.startDate.split('-')[1]) === i;
+        return Number(workout.startDate.split('-')[1]) === i + currentMonthNumber;
       })
       console.log(newWorkouts);
     } else if (props.selectedDateOrder === dateOptions[0]) {

@@ -16,7 +16,7 @@ export default function Data(props) {
   const history = useHistory();
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
-  console.log("Data props: ", props.selectedPage);
+  console.log("Data props: ", props);
 
   useEffect(() => {
     fetch("/data/" + props.selectedPage)
@@ -72,16 +72,15 @@ export default function Data(props) {
   // }
 
   const handleClick = (event) => {
-    const index = event.target.id;
-    console.log(event.target.id, workouts[index]);
+    let index = Number(event.target.id);
+ 
+    let workoutObject = {};
+    workouts.forEach(workout => {
+        if(index === workout.index) {
+          workoutObject = workout;
+        }
+      })
 
-    let workoutObject = {
-      index: index,
-      name: workouts[index].name,
-      description: workouts[index].description,
-      startDate: workouts[index].startDate,
-      category: workouts[index].category
-    }
     props.getWorkspaceId(workoutObject);
     history.push("/" + index);
   }

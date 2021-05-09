@@ -3,17 +3,11 @@ import { useHistory } from "react-router-dom";
 
 export default function Pagination(props) {
   const pagesArray = [];
-  var counter = 0;
-  var hideRestOfPages = false;
   const history = useHistory();
 
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
     counter++;
-    // if (counter >= 10) {
-    //   hideRestOfPages = true;
-    //   break;
-    // }
   }
 
   const handleClick = event => {
@@ -28,7 +22,6 @@ export default function Pagination(props) {
           {number}
         </span>
       ))}
-      {/* <span>{hideRestOfPages ? "..." : null}</span> */}
     </div>
   );
 }

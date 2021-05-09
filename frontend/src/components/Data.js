@@ -14,7 +14,6 @@ export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
   const [pagination, setPagination] = useState("");
   const history = useHistory();
-  // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
   useEffect(() => {
     fetch("/data/" + props.selectedPage)
@@ -31,42 +30,6 @@ export default function Data(props) {
         console.log(error.message);
       });
   }, [props.selectedPage]);
-
-  // useEffect(() => {
-  //   console.log('selectedDateOrder: ', props.selectedDateOrder);
-  //   if(props.selectedDateOrder === "descending") {
-  //     let newWorkouts = workouts.sort(function(a, b) {
-  //       // console.log(a, b)
-  //       return new Date(b.startDate) - new Date(a.startDate);
-  //   });
-  //   setSorterWorkouts(newWorkouts);
-  //   } else if (props.selectedDateOrder === "ascending") {
-  //     let newWorkouts = workouts.sort(function(b, a) {
-  //       // console.log(a, b)
-  //       return new Date(b.startDate) - new Date(a.startDate);
-  //   });
-  //   setSorterWorkouts(newWorkouts);
-  //   }
-
-  // }, [props.selectedDateOrder]);
-
-  // let newWorkouts = workouts.length ? workouts : [];
-  // console.log("NW2", workouts);
-  // if (props.selectedDateOrder === "descending") {
-  //   newWorkouts.sort(function(a, b) {
-  //     // console.log(a, b)
-  //     return new Date(b.startDate) - new Date(a.startDate);
-  //   });
-  // } else if (props.selectedDateOrder === "ascending") {
-  //   newWorkouts.sort(function(b, a) {
-  //     // console.log(a, b)
-  //     return new Date(b.startDate) - new Date(a.startDate);
-  //   });
-  // }
-  // else if (!props.selectedDateOrder.length) {
-  //   newWorkouts = workouts;
-  //   console.log('nW: ', workouts);
-  // }
 
   const handleClick = event => {
     let index = Number(event.target.id);

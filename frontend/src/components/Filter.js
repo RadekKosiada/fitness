@@ -16,7 +16,6 @@ export default function Filter(props) {
       <form>
         <label>
           <select value={value} onChange={handleChange}>
-            <option disabled></option>
             {props.options.map((category, index) => {
               return <option key={index} value={category}>{category}</option>;
             })}

@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 workouts.json
-workouts.min.json
-workouts-formula.js
 workouts40.json
+workouts40.min.json

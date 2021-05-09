@@ -7,7 +7,7 @@ function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
 
-  const dateOptions = ["", "ascending", "descending"];
+  const dateOptions = ["under construction", "ascending", "descending"];
   const categoriesOptions = ["", "c1", "c2", "c3", "c5", "c6", "c7"];
 
   const callbackDate = useCallback(filter => {

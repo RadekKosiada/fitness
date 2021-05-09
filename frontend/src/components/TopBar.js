@@ -17,6 +17,7 @@ export default function TopBar(props) {
         options={props.dateOptions}
         callback={props.callbackDate}
         selectedOption={props.selectedDateOrder}
+        disabled = {true}
       />
       <Filter
         // selectedFilter={selectedCategory}

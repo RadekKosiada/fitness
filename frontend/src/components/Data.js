@@ -15,7 +15,7 @@ export default function Data(props) {
   console.log("Data props: ", props);
 
   useEffect(() => {
-    fetch("/data")
+    fetch("/data/1")
       .then(response => {
         if (response.ok) {
           return response.json();

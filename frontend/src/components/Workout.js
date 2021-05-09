@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Workout(props) {
 
+  console.log(props.data)
   const lang = document.documentElement.lang;
   const optionsForDate = {
     weekday: "short",
@@ -11,18 +12,16 @@ export default function Workout(props) {
   };
 
   return (
-    <div className="workout-container" 
-    // key={props.index}
-    >Hallo workout
-      {/* <h1>
-        Name: {props.name}, Index: {props.index}
+    <div className="workout-container">
+      <h1>
+        Name: {props.data.name}, Index: {props.data.index}
       </h1>
-      <p>Description: {props.description}</p>
+      <p>Description: {props.data.description}</p>
       <p>
         Start date:{" "}
-        {new Date(props.startDate).toLocaleDateString(lang, optionsForDate)}
+        {new Date(props.data.startDate).toLocaleDateString(lang, optionsForDate)}
       </p>
-      <p>Category: {props.category}</p> */}
+      <p>Category: {props.data.category}</p>
     </div>
   );
 }

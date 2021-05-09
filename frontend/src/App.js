@@ -9,7 +9,7 @@ import {BrowserRouter, Route } from "react-router-dom";
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
-  const [selectedWorkout, setSelectedWorkout] = useState();
+  const [selectedWorkoutObject, setSelectedWorkoutObject] = useState({});
 
   const dateOptions = [
     "",
@@ -40,9 +40,9 @@ function App() {
     console.log("triggered", selectedCategory);
   }, []);
 
-  const getWorkspaceId = useCallback(id => {
-    console.log("clicked Id", id);
-    setSelectedWorkout(id);
+  const getWorkspaceId = useCallback(object => {
+    console.log("clicked Id");
+    setSelectedWorkoutObject(object);
   }, []);
 
   return (
@@ -68,7 +68,7 @@ function App() {
             getWorkspaceId={getWorkspaceId}
           />
         </Route>
-        <Route exact path={"/" + selectedWorkout} component={Workout} />
+        <Route exact path={"/" + selectedWorkoutObject.index} component={() => <Workout data={selectedWorkoutObject} />} />
       </BrowserRouter>
     </div>
   );

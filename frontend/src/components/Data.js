@@ -75,9 +75,20 @@ export default function Data(props) {
   // }
 
   const handleClick = (event) => {
-    console.log(event.target.id);
-    props.getWorkspaceId(event.target.id);
-    history.push("/" + event.target.id);
+    const index = event.target.id;
+    console.log(event.target.id, workouts[index]);
+
+    let workoutObject = {
+      index: index,
+      name: workouts[index].name,
+      description: workouts[index].description,
+      startDate: workouts[index].startDate,
+      category: workouts[index].category
+    }
+    props.getWorkspaceId(workoutObject);
+    history.push("/" + index);
+
+
   }
 
   let newWorkouts = [];

@@ -72,6 +72,11 @@ export default function Data(props) {
   //   console.log('nW: ', workouts);
   // }
 
+  const handleClick = (event) => {
+    console.log(event.target.id);
+    props.getWorkspaceId(event.target.id);
+  }
+
   let newWorkouts = [];
   console.log(props);
   const dateOptions = props.dateOptions;
@@ -96,8 +101,8 @@ export default function Data(props) {
       {newWorkouts.map(function(workout, i) {
         return (
           <div className="workout-container" key={workout.index}>
-            <h1>
-              Name: {workout.name}, Index: {workout.index}
+            <h1 onClick={handleClick} id={workout.index}>
+              Name: {workout.name}, Index: {workout.index} 
             </h1>
             <p>Description: {workout.description}</p>
             <p>

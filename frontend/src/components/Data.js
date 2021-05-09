@@ -16,11 +16,10 @@ export default function Data(props) {
   const history = useHistory();
   // const [sortedWorkouts, setSorterWorkouts] = useState([]);
 
-  const currentPage = 1;
-  console.log("Data props: ", props);
+  console.log("Data props: ", props.selectedPage);
 
   useEffect(() => {
-    fetch("/data/1")
+    fetch("/data/" + props.selectedPage)
       .then(response => {
         if (response.ok) {
           console.log(response);
@@ -28,15 +27,13 @@ export default function Data(props) {
         }
       })
       .then(jsonResponse => {
-        console.log(jsonResponse.workouts);
         setWorkouts(jsonResponse.workouts);
         setPagination(jsonResponse.sumOfPages);
-        console.log(workouts);
       })
       .catch(error => {
         console.log(error.message);
       });
-  }, []);
+  }, [props.selectedPage]);
 
   // useEffect(() => {
   //   console.log('selectedDateOrder: ', props.selectedDateOrder);
@@ -87,12 +84,9 @@ export default function Data(props) {
     }
     props.getWorkspaceId(workoutObject);
     history.push("/" + index);
-
-
   }
 
   let newWorkouts = [];
-  console.log(props);
   const dateOptions = props.dateOptions;
   const currentMonthNumber = new Date().getMonth();
 
@@ -130,7 +124,10 @@ export default function Data(props) {
           </div>
         );
       })}
-      <Pagination sumOfPages={pagination} currentPage={currentPage} />
+      <Pagination 
+        sumOfPages={pagination} 
+        currentPage={props.selectedPage}
+        getSelectedPage={props.getSelectedPage} />
     </div>
   );
 }

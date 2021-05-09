@@ -10,6 +10,7 @@ function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
   const [selectedCategory, setselectedCategory] = useState("");
   const [selectedWorkoutObject, setSelectedWorkoutObject] = useState({});
+  const [selectedPage, setSelectedPage] = useState(1);
 
   const dateOptions = [
     "",
@@ -45,11 +46,15 @@ function App() {
     setSelectedWorkoutObject(object);
   }, []);
 
+  const getSelectedPage = useCallback(pageNumber => {
+    setSelectedPage(pageNumber);
+  }, []);
+  
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Route path = "/data">
+        <Route exact path ={"/data/" + selectedPage}>
           <TopBar
             callbackDate={callbackDate}
             callbackCategories={callbackCategories}
@@ -66,6 +71,8 @@ function App() {
             dateOptions={dateOptions}
             categoriesOptions={categoriesOptions}
             getWorkspaceId={getWorkspaceId}
+            selectedPage={selectedPage}
+            getSelectedPage={getSelectedPage}
           />
         </Route>
         <Route exact path={"/" + selectedWorkoutObject.index} component={() => <Workout data={selectedWorkoutObject} />} />

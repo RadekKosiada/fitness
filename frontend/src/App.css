@@ -41,6 +41,11 @@
 	margin-right: 10px;
 }
 
+.pagination-container span:hover {
+	cursor: pointer;
+	font-weight: 800;
+}
+
 .workout-container {
 	border: 1px solid gray;
 	margin: 5px;

@@ -2,6 +2,7 @@
 
 * displays a list of 1000 entries in a wireframe design;
 * uses pagination and shows 20 entries/page; 
+  - pagination component shows the sum of all available entries;
   - every time user switches between pages, a new request to backend is made and new 20 entries are sent and displayed in frontend;
 * allows filtering entries:
   - according to start date - you can select entries from a respective month on each page;
@@ -26,7 +27,6 @@ Open [http://localhost:3000/data/1](http://localhost:3000/data/1) to view it in 
 * finishing category filter;
 * replace 'hard coded' array of months in date filter and get current month dynamically with JS;
 * adjust pagination bar:
-  - add total amount of workouts;
   - show only the current page number + a few pages behind and a few pages afterwards and not all pages;
   - hide it when less workouts than 20;
 

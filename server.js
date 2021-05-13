@@ -29,10 +29,11 @@ app.get("/data/:index", (request, response) => {
   console.log("Index last", indexOfLastWorkoutToSend);
   
   const workoutsToSend = workouts.slice(indexOfFirstWorkoutToSend, indexOfLastWorkoutToSend);
-  console.log('WL: ', workoutsToSend.length)
+  console.log('WL: ', workouts.length)
   response.json({
     workouts: workoutsToSend,
-    sumOfPages: sumOfAllFrontendPages
+    sumOfPages: sumOfAllFrontendPages,
+    sumOfWorkouts: workouts.length
   });
 });
 

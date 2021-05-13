@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
   const [pagination, setPagination] = useState("");
+  const [sumOfWorkouts, setSumOfWorkouts] = useState();
   const history = useHistory();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function Data(props) {
       .then(jsonResponse => {
         setWorkouts(jsonResponse.workouts);
         setPagination(jsonResponse.sumOfPages);
+        setSumOfWorkouts(jsonResponse.sumOfWorkouts);
       })
       .catch(error => {
         console.log(error.message);
@@ -67,6 +69,7 @@ export default function Data(props) {
         );
       })}
       <Pagination
+        sumOfAllWorkouts={sumOfWorkouts}
         sumOfPages={pagination}
         currentPage={props.selectedPage}
         getSelectedPage={props.getSelectedPage}

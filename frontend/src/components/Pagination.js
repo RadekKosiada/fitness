@@ -16,6 +16,7 @@ export default function Pagination(props) {
 
   return (
     <div className="pagination-container">
+      <p>Number of all workouts: {props.sumOfAllWorkouts}</p>
       {pagesArray.map((number, i) => (
         <span onClick={handleClick} id={i+1} key={i+1}>
           {number}

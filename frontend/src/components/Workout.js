@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Workout(props) {
-
   const history = useHistory();
   const lang = document.documentElement.lang;
   const optionsForDate = {
@@ -14,14 +13,13 @@ export default function Workout(props) {
 
   const handleClick = () => {
     history.push("/data/" + props.selectedPage);
-  }
+  };
   return (
     <div>
       <button onClick={handleClick}>Back to workouts</button>
       <div className="workout-container">
-        <h1>
-          Name: {props.data.name}, Index: {props.data.index}
-        </h1>
+        <p className="workout-index">{props.data.index}</p>
+        <h1>Name: {props.data.name}</h1>
         <p>Description: {props.data.description}</p>
         <p>
           Start date:{" "}

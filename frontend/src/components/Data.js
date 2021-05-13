@@ -70,15 +70,6 @@ export default function Data(props) {
             <h1 onClick={handleClick} id={workout.index}>
               Name: {workout.name}
             </h1>
-            <p>Description: {workout.description}</p>
-            <p>
-              Start date:{" "}
-              {new Date(workout.startDate).toLocaleDateString(
-                lang,
-                optionsForDate
-              )}
-            </p>
-            <p>Category: {workout.category}</p>
           </div>
         );
       })}

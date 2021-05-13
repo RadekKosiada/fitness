@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import { useHistory } from "react-router-dom";
 
-
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);
   const [pagination, setPagination] = useState("");
@@ -57,17 +56,19 @@ export default function Data(props) {
   }
 
   return (
-    <div>
-      {newWorkouts.map(function(workout, i) {
-        return (
-          <div className="workout-container" key={workout.index}>
-            <p className="workout-index">{workout.index}</p>
-            <h1 onClick={handleClick} id={workout.index}>
-              Name: {workout.name}
-            </h1>
-          </div>
-        );
-      })}
+    <div className="data-container">
+      <div className="all-workouts-container">
+        {newWorkouts.map(function(workout, i) {
+          return (
+            <div className="workout-container" key={workout.index}>
+              <p className="workout-index">{workout.index}</p>
+              <h1 onClick={handleClick} id={workout.index}>
+                Name: {workout.name}
+              </h1>
+            </div>
+          );
+        })}
+      </div>
       <Pagination
         sumOfAllWorkouts={sumOfWorkouts}
         sumOfPages={pagination}

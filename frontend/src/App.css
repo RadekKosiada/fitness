@@ -2,6 +2,17 @@
 	font-family: Arial, sans-sarif;
 }
 
+.data-container {
+	text-align: center;
+}
+
+.all-workouts-container {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
 .topbar-container {
 	background-color: #aaa;
 	color: #FFF;
@@ -37,7 +48,6 @@
 }
 
 .pagination-container {
-	text-align: center;
 	max-width: 400px;
 }
 

@@ -2,13 +2,6 @@ import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import { useHistory } from "react-router-dom";
 
-const lang = document.documentElement.lang;
-const optionsForDate = {
-  weekday: "short",
-  year: "numeric",
-  month: "short",
-  day: "numeric"
-};
 
 export default function Data(props) {
   const [workouts, setWorkouts] = useState([]);

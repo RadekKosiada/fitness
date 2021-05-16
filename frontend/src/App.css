@@ -49,6 +49,7 @@
 
 .pagination-container {
 	max-width: 400px;
+	display: inline-block;
 }
 
 .pagination-container>* {
@@ -57,7 +58,7 @@
 
 .pagination-container span:hover {
 	cursor: pointer;
-	font-weight: 800;
+	text-decoration: underline;
 }
 
 .workout-container {

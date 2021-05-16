@@ -83,3 +83,7 @@
 .bold {
 	font-weight: 800;
 }
+
+.hidden {
+	opacity: 0.25;
+}

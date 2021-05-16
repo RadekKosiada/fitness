@@ -18,8 +18,7 @@ export default function Pagination(props) {
   }
 
   const handleClick = event => {
-    props.getSelectedPage(event.target.id);
-    history.push("/data/" + event.target.id);
+    changePage(event.target.id);
   };
 
   const hidePreDots = currentPageNumber < 10 ? "pre-dots-hidden" : null;
@@ -34,8 +33,7 @@ export default function Pagination(props) {
       newPage = Number(tenNumber.toString() + "0") - 10;
     }
 
-    props.getSelectedPage(newPage);
-    history.push("/data/" + newPage);
+    changePage(newPage);
   };
 
   const goToNextTen = () => {
@@ -46,8 +44,12 @@ export default function Pagination(props) {
     } else {
       newPage = Number(tenNumber.toString() + "0") + 10;
     }
-    props.getSelectedPage(newPage);
-    history.push("/data/" + newPage);
+    changePage(newPage);
+  };
+
+  const changePage = page => {
+    props.getSelectedPage(page);
+    history.push("/data/" + page);
   };
 
   return (

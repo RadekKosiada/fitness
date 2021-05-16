@@ -4,7 +4,7 @@ import Data from "./components/Data";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Workout from "./components/Workout";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
@@ -48,8 +48,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <BrowserRouter>
+      <div className="App">
         <Header />
         <Route exact path={"/data/" + selectedPage}>
           <TopBar
@@ -79,8 +78,7 @@ function App() {
             <Workout data={selectedWorkoutObject} selectedPage={selectedPage} />
           )}
         />
-      </BrowserRouter>
-    </div>
+      </div>
   );
 }
 

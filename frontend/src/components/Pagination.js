@@ -8,6 +8,7 @@ export default function Pagination(props) {
   console.log(props);
 
   const currentPageNumber = Number(props.currentPage);
+  let tenNumber = Number(currentPageNumber.toString()[0]);
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
   }
@@ -43,9 +44,7 @@ export default function Pagination(props) {
           hidden = number < 10 ? "" : "hidden";
         } else {
           // will work as long as pages number < 100
-          let tenNumber = Number(currentPageNumber.toString()[0]);
-          hidden =
-            10 * tenNumber <= number && number < 10 * (tenNumber + 1)
+          hidden = 10 * tenNumber <= number && number < 10 * (tenNumber + 1)
               ? ""
               : "hidden";
         }

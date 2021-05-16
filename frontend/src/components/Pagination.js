@@ -18,12 +18,23 @@ export default function Pagination(props) {
   };
 
   const hidePreDots = currentPageNumber < 10 ? "pre-dots-hidden" : null;
-  const hidePostDots = currentPageNumber === props.sumOfPages ? "post-dots-hidden" : null;
+  const hidePostDots =
+    currentPageNumber === props.sumOfPages ? "post-dots-hidden" : null;
+
+  const goToPreviousTen = () => {
+    console.log(currentPageNumber - 1);
+  };
+
+  const goToNextTen = () => {
+    console.log(currentPageNumber + 1);
+  };
 
   return (
     <div className="pagination-container">
       <p>Number of all workouts: {props.sumOfAllWorkouts}</p>
-      <span className={hidePreDots}>...</span>
+      <span className={hidePreDots} onClick={goToPreviousTen}>
+        ...
+      </span>
       {pagesArray.map(number => {
         //define classes for pagination
         const bold = number === currentPageNumber ? "bold" : null;
@@ -31,6 +42,7 @@ export default function Pagination(props) {
         if (currentPageNumber.toString().length < 2) {
           hidden = number < 10 ? "" : "hidden";
         } else {
+          // will work as long as pages number < 100
           let tenNumber = Number(currentPageNumber.toString()[0]);
           hidden =
             10 * tenNumber <= number && number < 10 * (tenNumber + 1)
@@ -49,7 +61,9 @@ export default function Pagination(props) {
           </span>
         );
       })}
-      <span className={hidePostDots}>...</span>
+      <span className={hidePostDots} onClick={goToNextTen}>
+        ...
+      </span>
     </div>
   );
 }

@@ -8,7 +8,11 @@ export default function Pagination(props) {
   console.log(props);
 
   const currentPageNumber = Number(props.currentPage);
-  let tenNumber = Number(currentPageNumber.toString()[0]);
+  let tenNumber =
+    currentPageNumber.toString().length > 1
+      ? Number(currentPageNumber.toString()[0])
+      : 0;
+  console.log(tenNumber);
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
   }
@@ -23,11 +27,27 @@ export default function Pagination(props) {
     currentPageNumber === props.sumOfPages ? "post-dots-hidden" : null;
 
   const goToPreviousTen = () => {
-    console.log(currentPageNumber - 1);
+    let newPage;
+    if (tenNumber === 1) {
+      newPage = 1;
+    } else {
+      newPage = Number(tenNumber.toString() + "0") - 10;
+    }
+
+    props.getSelectedPage(newPage);
+    history.push("/data/" + newPage);
   };
 
   const goToNextTen = () => {
-    console.log(currentPageNumber + 1);
+    console.log(tenNumber);
+    let newPage;
+    if (tenNumber === 0) {
+      newPage = 10;
+    } else {
+      newPage = Number(tenNumber.toString() + "0") + 10;
+    }
+    props.getSelectedPage(newPage);
+    history.push("/data/" + newPage);
   };
 
   return (
@@ -44,7 +64,8 @@ export default function Pagination(props) {
           hidden = number < 10 ? "" : "hidden";
         } else {
           // will work as long as pages number < 100
-          hidden = 10 * tenNumber <= number && number < 10 * (tenNumber + 1)
+          hidden =
+            10 * tenNumber <= number && number < 10 * (tenNumber + 1)
               ? ""
               : "hidden";
         }

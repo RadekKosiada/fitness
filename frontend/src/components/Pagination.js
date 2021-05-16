@@ -32,7 +32,6 @@ export default function Pagination(props) {
         //define classes for pagination
         const bold = number === currentPageNumber ? "bold" : null;
         let hidden;
-        let red;
          if (currentPageNumber.toString().length < 2) {
           hidden = number < 10 ? "" : "hidden";
         } 
@@ -47,7 +46,7 @@ export default function Pagination(props) {
             onClick={handleClick}
             id={number}
             key={number}
-            className={`${bold} ${hidden} ${red}`}
+            className={`${bold} ${hidden}`}
           >
             {number}
           </span>

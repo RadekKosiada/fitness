@@ -17,9 +17,13 @@ export default function Pagination(props) {
     history.push("/data/" + event.target.id);
   };
 
+  const hidePreDots = currentPageNumber < 10 ? "pre-dots-hidden" : null;
+  const hidePostDots = currentPageNumber === props.sumOfPages ? "post-dots-hidden" : null;
+
   return (
     <div className="pagination-container">
       <p>Number of all workouts: {props.sumOfAllWorkouts}</p>
+      <span className={hidePreDots}>...</span>
       {pagesArray.map(number => {
         //define classes for pagination
         const bold = number === currentPageNumber ? "bold" : null;
@@ -45,7 +49,7 @@ export default function Pagination(props) {
           </span>
         );
       })}
-      {/* <span className={currentPageNumber == props.sumOfPages ? 'hidden' : null}>...</span> */}
+      <span className={hidePostDots}>...</span>
     </div>
   );
 }

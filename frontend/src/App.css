@@ -87,3 +87,8 @@
 .hidden {
 	opacity: 0.25;
 }
+
+.pre-dots-hidden,
+.post-dots-hidden {
+	display: none;
+}

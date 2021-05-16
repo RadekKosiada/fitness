@@ -5,14 +5,11 @@ export default function Pagination(props) {
   const pagesArray = [];
   const history = useHistory();
 
-  console.log(props);
-
   const currentPageNumber = Number(props.currentPage);
   let tenNumber =
     currentPageNumber.toString().length > 1
       ? Number(currentPageNumber.toString()[0])
       : 0;
-  console.log(tenNumber);
   for (let i = 1; i <= props.sumOfPages; i++) {
     pagesArray.push(i);
   }
@@ -37,7 +34,6 @@ export default function Pagination(props) {
   };
 
   const goToNextTen = () => {
-    console.log(tenNumber);
     let newPage;
     if (tenNumber === 0) {
       newPage = 10;

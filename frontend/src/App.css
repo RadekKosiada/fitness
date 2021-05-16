@@ -79,3 +79,7 @@
 .workout-container h1:hover {
 	cursor: pointer;
 }
+
+.bold {
+	font-weight: 800;
+}

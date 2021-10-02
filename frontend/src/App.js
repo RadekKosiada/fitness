@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useCallback } from "react";
 import "./App.css";
 import Data from "./components/Data";
@@ -5,6 +6,8 @@ import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Workout from "./components/Workout";
 import { Route, BrowserRouter } from "react-router-dom";
+
+const Context = React.createContext();
 
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
@@ -53,14 +56,16 @@ function App() {
         <Header />
         <Route exact path={"/data/" + selectedPage}>
           <TopBar
-            callbackDate={callbackDate}
+            
             callbackCategories={callbackCategories}
-            selectedDateOrder={selectedDateOrder}
-            selectedCategory={selectedCategory}
-            dateOptions={dateOptions}
             categoriesOptions={categoriesOptions}
-            filterDateLabel={filterDateLabel}
             filterCategoriesLabel={filterCategoriesLabel}
+            selectedCategory={selectedCategory}
+            // data to be passed to Filter
+            dateOptions={dateOptions}
+            callbackDate={callbackDate}
+            selectedDateOrder={selectedDateOrder}
+            filterDateLabel={filterDateLabel}
           />
           <Data
             selectedDateOrder={selectedDateOrder}

@@ -61,11 +61,12 @@ function App() {
           <Header />
           <Route exact path={"/data/" + selectedPage}>
             <TopBar
+              // data to be passed to Filter Categories
               callbackCategories={callbackCategories}
               categoriesOptions={categoriesOptions}
               filterCategoriesLabel={filterCategoriesLabel}
               selectedCategory={selectedCategory}
-              // data to be passed to Filter
+              // data to be passed to Filter Date
               callbackDate={callbackDate}
               selectedDateOrder={selectedDateOrder}
               filterDateLabel={filterDateLabel}

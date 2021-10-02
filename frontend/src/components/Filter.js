@@ -3,7 +3,7 @@ import { DateContext } from "../App";
 
 export default function Filter(props) {
   const [value, setValue] = useState("");
-  const dateContext = useContext(DateContext);
+  const { dateOptions } = useContext(DateContext);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -20,7 +20,7 @@ export default function Filter(props) {
             onChange={handleChange}
             disabled={props.disabled}
           >
-            {dateContext.map((category, index) => {
+            {dateOptions.map((category, index) => {
               return (
                 <option key={index} value={category}>
                   {category}

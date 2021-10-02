@@ -53,7 +53,7 @@ function App() {
   return (
     <DateContext.Provider
       // data to be passed to Filter
-      value={dateOptions}  
+      value={{ dateOptions: dateOptions }} 
     >
       <div className="App">
         <BrowserRouter>

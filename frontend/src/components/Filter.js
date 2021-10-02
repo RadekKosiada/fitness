@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
-import { DateContext, DEBUG } from "../App";
+import { Context, DEBUG } from "../App";
 
 
 export default function Filter(props) {
   const [value, setValue] = useState("");
-  const { dateOptions } = useContext(DateContext);
-  DEBUG && console.log('dateOptions: ', dateOptions)
-
+  const {} = useContext(Context);
+  
   const handleChange = (event) => {
     setValue(event.target.value);
     props.callback(event.target.value);

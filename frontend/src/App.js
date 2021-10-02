@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Workout from "./components/Workout";
 import { Route, BrowserRouter } from "react-router-dom";
 
-export const DateContext = React.createContext();
+export const Context = React.createContext();
 export const DEBUG = true;
 
 function App() {
@@ -52,9 +52,9 @@ function App() {
   }, []);
 
   return (
-    <DateContext.Provider
+    <Context.Provider
       // data to be passed to Filter
-      value={{ dateOptions }} 
+      value={{ }} 
     >
       <div className="App">
         <BrowserRouter>
@@ -93,7 +93,7 @@ function App() {
           />
         </BrowserRouter>
       </div>
-    </DateContext.Provider>
+    </Context.Provider>
   );
 }
 

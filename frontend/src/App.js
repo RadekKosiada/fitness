@@ -8,6 +8,7 @@ import Workout from "./components/Workout";
 import { Route, BrowserRouter } from "react-router-dom";
 
 export const DateContext = React.createContext();
+export const DEBUG = true;
 
 function App() {
   const [selectedDateOrder, setSelectedDateOrder] = useState("");
@@ -53,7 +54,7 @@ function App() {
   return (
     <DateContext.Provider
       // data to be passed to Filter
-      value={{ dateOptions: dateOptions }} 
+      value={{ dateOptions }} 
     >
       <div className="App">
         <BrowserRouter>

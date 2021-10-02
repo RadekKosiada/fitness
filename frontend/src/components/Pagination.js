@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { DEBUG, Context } from "../App";
 
 export default function Pagination(props) {
   const pagesArray = [];
   const history = useHistory();
 
-  const currentPageNumber = Number(props.currentPage);
+  const {selectedPage, getSelectedPage } = useContext(Context);
+
+  const currentPageNumber = Number(selectedPage);
   let tenNumber =
     currentPageNumber.toString().length > 1
       ? Number(currentPageNumber.toString()[0])
@@ -44,7 +47,7 @@ export default function Pagination(props) {
   };
 
   const changePage = page => {
-    props.getSelectedPage(page);
+    getSelectedPage(page);
     history.push("/data/" + page);
   };
 

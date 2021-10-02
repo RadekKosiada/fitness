@@ -54,7 +54,7 @@ function App() {
   return (
     <Context.Provider
       // data to be passed to Filter
-      value={{ }} 
+      value={{ selectedPage, getSelectedPage }} 
     >
       <div className="App">
         <BrowserRouter>

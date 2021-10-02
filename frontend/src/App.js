@@ -69,6 +69,7 @@ function App() {
               callbackDate={callbackDate}
               selectedDateOrder={selectedDateOrder}
               filterDateLabel={filterDateLabel}
+              dateOptions={dateOptions}
             />
             <Data
               selectedDateOrder={selectedDateOrder}

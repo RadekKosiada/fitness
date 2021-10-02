@@ -22,7 +22,7 @@ export default function Filter(props) {
             onChange={handleChange}
             disabled={props.disabled}
           >
-            {dateOptions.map((category, index) => {
+            {props.options.map((category, index) => {
               return (
                 <option key={index} value={category}>
                   {category}

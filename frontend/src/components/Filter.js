@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DateContext } from "../App";
 
 export default function Filter(props) {
   const [value, setValue] = useState("");
+  const dateContext = useContext(DateContext);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setValue(event.target.value);
     props.callback(event.target.value);
   };
@@ -18,7 +20,7 @@ export default function Filter(props) {
             onChange={handleChange}
             disabled={props.disabled}
           >
-            {props.options.map((category, index) => {
+            {dateContext.map((category, index) => {
               return (
                 <option key={index} value={category}>
                   {category}

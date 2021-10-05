@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context, DEBUG } from "../App";
+
 
 export default function Filter(props) {
   const [value, setValue] = useState("");
-
-  const handleChange = event => {
+  const {} = useContext(Context);
+  
+  const handleChange = (event) => {
     setValue(event.target.value);
     props.callback(event.target.value);
   };

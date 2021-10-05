@@ -72,8 +72,6 @@ export default function Data(props) {
       <Pagination
         sumOfAllWorkouts={sumOfWorkouts}
         sumOfPages={pagination}
-        currentPage={props.selectedPage}
-        getSelectedPage={props.getSelectedPage}
       />
     </div>
   );
